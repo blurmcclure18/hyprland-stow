@@ -1,0 +1,111 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: ":espanso"
+    replace: "Hi there!"
+
+  # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
+
+  # But matches can also be dynamic:
+
+  # Print the current date
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+ 
+  - trigger: ":vpn"
+    replace: "sudo openconnect cva.uscourts.gov -u alecmcclure"
+ 
+    # Work Email
+  - trigger: ":email"
+    replace: 'alec_mcclure@ilcp.uscourts.gov'
+
+  # Print the output of a shell command
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+          # Print the output of a shell command
+  - trigger: ":esp"
+    replace: "{{espanso}}"
+    vars:
+      - name: espanso
+        type: shell
+        params:
+          cmd: "echo espanso edit"
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/
+  # Enter the pacman update command
+  - trigger: ":pacu"
+    replace: "sudo pacman -Syu --noconfirm"
+
+# Enter the pacman install command
+  - trigger: ":paci"
+    replace: "sudo pacman -S  "
+
+# Enter the pacman Uninstall command
+  - trigger: ":pacr"
+    replace: "sudo pacman -Rns  "
+
+# Enter the yay update command
+  - trigger: ":yayu"
+    replace: "yay -Syu --noconfirm"
+
+# Enter the yay install command
+  - trigger: ":yayi"
+    replace: "yay -S  "
+
+# Enter the yay Uninstall command
+  - trigger: ":yayr"
+    replace: "yay -Rns  "
+
+# Enter the Flatpak Search command
+  - trigger: ":flats"
+    replace: "flatpak search "
+# Enter the Flatpak Install command
+  - trigger: ":flati"
+    replace: "flatpak install "
+
+# Enter the Flatpak Uninstall command
+  - trigger: ":flatr"
+    replace: "flatpak uninstall "
+
+# Enter the Flatpak Update command
+  - trigger: ":flatu"
+    replace: "flatpak update --noninteractive"
+
+# Enter the Flatpak list command
+  - trigger: ":flatl"
+    replace: "flatpak list"
+
+# Enter the Flatpak Run command
+  - trigger: ":flatx"
+    replace: "flatpak run "
+
+# Flatpak noninteractive flag
+  - trigger: ":noni"
+    replace: "--noninteractive"
+
+# Run TurtleTyping
+  - trigger: ":turt"
+    replace: "flatpak run org.sugarlabs.TypingTurtle"
+
+# Run Keypunch
+  - trigger: ":keyp"
+    replace: "flatpak run dev.bragefuglseth.Keypunch"
